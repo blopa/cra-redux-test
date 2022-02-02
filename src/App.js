@@ -1,19 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
-import { useEffect } from "react";
-import { connect } from 'react-redux';
+import StateComponent from "./StateComponent";
 
-const mapStateToProps = (state) => {
-  return {
-    result: state.simpleReducer.result,
-  };
-};
-
-function App({ result }) {
-  useEffect(() => {
-    console.log({ result });
-  }, []);
-
+const App = () => {
   return (
     <div className="App">
       <header className="App-header">
@@ -29,9 +18,10 @@ function App({ result }) {
         >
           Learn React
         </a>
+        <StateComponent />
       </header>
     </div>
   );
-}
+};
 
-export default connect(mapStateToProps)(App);
+export default App;
