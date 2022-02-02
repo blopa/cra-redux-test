@@ -1,10 +1,17 @@
 import logo from './logo.svg';
 import './App.css';
 import { useEffect } from "react";
+import { connect } from 'react-redux';
 
-function App() {
+const mapStateToProps = (state) => {
+  return {
+    result: state.simpleReducer.result,
+  };
+};
+
+function App({ result }) {
   useEffect(() => {
-    console.log('ok');
+    console.log({ result });
   }, []);
 
   return (
@@ -27,4 +34,4 @@ function App() {
   );
 }
 
-export default App;
+export default connect(mapStateToProps)(App);
